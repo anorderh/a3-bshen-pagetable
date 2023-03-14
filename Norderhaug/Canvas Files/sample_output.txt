@@ -1,0 +1,109 @@
+./mmuwithtlb trace.tr 4 8 8
+Page size: 4096 bytes
+Addresses processed: 224449
+Cache hits: 0, Page hits: 222566, Total hits: 222566, Misses: 1883
+Total hit percentage: 99.16%, miss percentage: 0.84%
+Frames allocated: 1883
+Bytes used:  791748
+
+./mmuwithtlb -p levelbitmasks trace.tr 8 4 8
+Bitmasks
+level 0 mask FF000000
+level 1 mask 00F00000
+level 2 mask 000FF000
+
+./mmuwithtlb -n 20 -p offset trace.tr 8 4 8
+00000760
+00000780
+00000740
+000002C0
+00000900
+00000900
+000008A0
+000000A0
+00000110
+00000160
+000004F8
+00000500
+00000520
+000005A0
+000005A0
+00000DD0
+000005E0
+00000F10
+00000620
+00000620
+
+./mmuwithtlb -n 20 -p vpn2pfn trace.tr 8 4 8
+0 1 7 -> 0
+0 1 7 -> 0
+0 1 7 -> 0
+1 7 D7 -> 1
+0 17 9E -> 2
+1 C 9C -> 3
+0 1 1D -> 4
+0 1 28 -> 5
+0 1 27 -> 6
+0 1 27 -> 6
+0 1 13 -> 7
+0 1 13 -> 7
+0 1D 13 -> 8
+0 1 13 -> 7
+3 22 29 -> 9
+0 1D 13 -> 8
+0 1 13 -> 7
+0 1C F -> A
+0 1 13 -> 7
+1 35 25 -> B
+
+./mmuwithtlb -n 20 -p va2pa trace.tr 20
+0041F760 -> 00000760
+0041F780 -> 00000780
+0041F740 -> 00000740
+11F5E2C0 -> 000012C0
+05E78900 -> 00002900
+13270900 -> 00003900
+004758A0 -> 000048A0
+004A30A0 -> 000050A0
+0049E110 -> 00006110
+0049E160 -> 00006160
+0044E4F8 -> 000074F8
+0044E500 -> 00007500
+0744E520 -> 00008520
+0044E5A0 -> 000075A0
+388A65A0 -> 000095A0
+0744EDD0 -> 00008DD0
+0044E5E0 -> 000075E0
+0703FF10 -> 0000AF10
+0044E620 -> 00007620
+1D496620 -> 0000B620
+
+./mmuwithtlb -n 20 -c 4 -p va2pa_tlb_ptwalk trace.tr 4 6 8
+0041F760 -> 00003760, tlb miss, pagetable miss
+0041F780 -> 00003780, tlb hit
+0041F740 -> 00003740, tlb hit
+11F5E2C0 -> 000062C0, tlb miss, pagetable miss
+05E78900 -> 00008900, tlb miss, pagetable miss
+13270900 -> 0000C900, tlb miss, pagetable miss
+004758A0 -> 000118A0, tlb miss, pagetable miss
+004A30A0 -> 000170A0, tlb miss, pagetable miss
+0049E110 -> 0001A110, tlb miss, pagetable miss
+0049E160 -> 0001A160, tlb hit
+0044E4F8 -> 0001E4F8, tlb miss, pagetable miss
+0044E500 -> 0001E500, tlb hit
+0744E520 -> 00022520, tlb miss, pagetable miss
+0044E5A0 -> 0001E5A0, tlb hit
+388A65A0 -> 000265A0, tlb miss, pagetable miss
+0744EDD0 -> 00022DD0, tlb hit
+0044E5E0 -> 0001E5E0, tlb hit
+0703FF10 -> 0002BF10, tlb miss, pagetable miss
+0044E620 -> 0001E620, tlb hit
+1D496620 -> 0002E620, tlb miss, pagetable miss
+
+./mmuwithtlb -n 100000 -p summary trace.tr 24
+Page size: 256 bytes
+Addresses processed: 100000
+Cache hits: 0, Page hits: 96424, Total hits: 96424, Misses: 3576
+Total hit percentage: 96.42%, miss percentage: 3.58%
+Frames allocated: 3576
+Bytes used:  134217820
