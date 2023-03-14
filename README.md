@@ -6,6 +6,8 @@ Due on **3/23/23 at 4:00 PM**, start of class
 
 **note**: *trace* files are not included in repo due to size ~ download from Canvas
 
+[![trello](imgRef/trello.png)](https://trello.com/b/OFXMvuNT/cs-480-assignment-3)
+
 ## Process
 
 1. Create an empty page table at <u>level 0</u>
