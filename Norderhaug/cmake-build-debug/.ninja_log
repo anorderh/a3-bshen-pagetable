@@ -1,0 +1,9 @@
+# ninja log v5
+2	458	1678906417030230603	CMakeFiles/Norderhaug.dir/main.cpp.o	cfe969dc2ced51ed
+0	126	1678910563849251239	build.ninja	82a7dda40516ef49
+2	64	1678906412148167378	CMakeFiles/Norderhaug.dir/vaddr_tracereader.c.o	9c10d9c743749b59
+591	658	1678914733354890150	Norderhaug	c112b32f3e0ff644
+3	76	1678912477737753323	CMakeFiles/Norderhaug.dir/src/vaddr_tracereader.c.o	a7fef4b7e693955
+3	590	1678914733283574523	CMakeFiles/Norderhaug.dir/src/main.cpp.o	de4917eed2ab103d
+0	81	1678906915959198957	CMakeFiles/Norderhaug.dir/src/bitmasking-demo.c.o	dc12a2b690803c36
+0	126	1678906915987027546	CMakeFiles/Norderhaug.dir/src/print_helpers.c.o	c23ecde41558fdcc

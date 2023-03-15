@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Norderhaug",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Norderhaug::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Norderhaug-Debug-e9df6430ddd24bd03d14.json",
+					"name" : "Norderhaug",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/cmake-build-debug",
+		"source" : "/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
