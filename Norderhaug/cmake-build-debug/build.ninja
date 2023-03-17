@@ -74,21 +74,28 @@ build cmake_object_order_depends_target_Norderhaug: phony || CMakeFiles/Norderha
 
 build CMakeFiles/Norderhaug.dir/src/print_helpers.c.o: C_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/print_helpers.c || cmake_object_order_depends_target_Norderhaug
   DEP_FILE = CMakeFiles/Norderhaug.dir/src/print_helpers.c.o.d
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
   INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
   OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
 
 build CMakeFiles/Norderhaug.dir/src/vaddr_tracereader.c.o: C_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/vaddr_tracereader.c || cmake_object_order_depends_target_Norderhaug
   DEP_FILE = CMakeFiles/Norderhaug.dir/src/vaddr_tracereader.c.o.d
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
   INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
   OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
 
 build CMakeFiles/Norderhaug.dir/src/main.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/main.cpp || cmake_object_order_depends_target_Norderhaug
   DEP_FILE = CMakeFiles/Norderhaug.dir/src/main.cpp.o.d
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu++11
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
+  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
+  OBJECT_DIR = CMakeFiles/Norderhaug.dir
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+
+build CMakeFiles/Norderhaug.dir/src/bitManipulation.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/bitManipulation.cpp || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/src/bitManipulation.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
   INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
   OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
@@ -101,8 +108,8 @@ build CMakeFiles/Norderhaug.dir/src/main.cpp.o: CXX_COMPILER__Norderhaug_Debug /
 #############################################
 # Link the executable Norderhaug
 
-build Norderhaug: CXX_EXECUTABLE_LINKER__Norderhaug_Debug CMakeFiles/Norderhaug.dir/src/print_helpers.c.o CMakeFiles/Norderhaug.dir/src/vaddr_tracereader.c.o CMakeFiles/Norderhaug.dir/src/main.cpp.o
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk
+build Norderhaug: CXX_EXECUTABLE_LINKER__Norderhaug_Debug CMakeFiles/Norderhaug.dir/src/print_helpers.c.o CMakeFiles/Norderhaug.dir/src/vaddr_tracereader.c.o CMakeFiles/Norderhaug.dir/src/main.cpp.o CMakeFiles/Norderhaug.dir/src/bitManipulation.cpp.o
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
   POST_BUILD = :
   PRE_LINK = :
