@@ -9,7 +9,7 @@
  * @param vpn
  * @param num
  */
-Map::Map(unsigned int vpn, int num) {
+Map::Map(unsigned int vpn, unsigned int num) {
     VPN = vpn;
     frame_num = num;
 }

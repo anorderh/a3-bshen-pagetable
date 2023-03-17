@@ -17,6 +17,10 @@ set(
         ${APP_DOMAIN}/bitManipulation.cpp
         ${APP_DOMAIN}/Map.cpp
         ${APP_DOMAIN}/Map.h
+        ${APP_DOMAIN}/PageTable.cpp
+        ${APP_DOMAIN}/PageTable.h
+        ${APP_DOMAIN}/Level.cpp
+        ${APP_DOMAIN}/Level.h
 )
 
 add_executable(Norderhaug ${SOURCE_FILES})

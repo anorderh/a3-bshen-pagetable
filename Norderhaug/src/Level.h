@@ -10,12 +10,12 @@
 
 class Level {
 public:
-    Level(int lvl, PageTable* pageTable);
+    Level(int lvl, PageTable *pageTable);
 
     Level** nextLevels;
-    Map** map;
+    Map** maps;
 
-    int cur_level;
+    int depth;
     unsigned int bitmask;
     int shift;
     unsigned int count;

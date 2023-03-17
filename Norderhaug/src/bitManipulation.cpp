@@ -3,7 +3,6 @@
 //
 
 #include "bitManipulation.h"
-#include "math.h"
 
 using namespace std;
 
@@ -34,7 +33,6 @@ unsigned int generateBitmask(int start, int end) {
  * @return
  */
 tuple<unsigned int, unsigned int> getAddrInfo(int lvls[], int numOfLvls, unsigned int vAddr) {
-    unsigned int VPN = vAddr;
     unsigned int offset = vAddr;
 
     // Get sum of levels' bits
@@ -44,6 +42,7 @@ tuple<unsigned int, unsigned int> getAddrInfo(int lvls[], int numOfLvls, unsigne
     }
 
     // Mask and shift for VPN
+    unsigned int VPN = vAddr;
     unsigned int vpn_mask = generateBitmask(0, bit_sum);
     int shift = 32 - bit_sum;
     VPN = vAddr & vpn_mask;

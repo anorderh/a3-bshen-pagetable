@@ -8,10 +8,10 @@
 
 class Map {
 public:
-    Map(unsigned int vpn, int frame);
+    Map(unsigned int vpn, unsigned int frame);
 
     unsigned int VPN;
-    int frame_num;
+    unsigned int frame_num;
 };
 
 

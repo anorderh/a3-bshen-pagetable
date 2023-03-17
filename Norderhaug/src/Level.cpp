@@ -10,14 +10,14 @@
  * @param pt
  */
 Level::Level(int lvl, PageTable* pt) {
-    cur_level = lvl;
+    depth = lvl;
 
-    bitmask = pt->bitmasks[cur_level];
-    shift = pt->bit_shifts[cur_level];
-    count = pt->entryCount[cur_level];
+    bitmask = pt->bitmasks[lvl];
+    shift = pt->bit_shifts[lvl];
+    count = pt->entryCount[lvl];
 
     // Allocating nextLevels
     nextLevels = new Level*[count]();
     // Allocating map, incase leaf node
-    map = new Map*[count]();
+    maps = new Map*[count]();
 }
