@@ -1,46 +1,37 @@
 #include <iostream>
 #include "bitManipulation.h"
+#include "PageTable.h"
+#include "Map.h"
 extern "C" {
 #include "vaddr_tracereader.h"
 }
 
 using namespace std;
 
-void readTrace(const char *filename) {
+void processTrace(const char *filename, PageTable* pt) {
     FILE* trace_fstream = fopen(filename, "r"); // file stream
     p2AddrTr mtrace;
 
+    unsigned int vAddr;
+    unsigned frame_idx = 0;
     while (NextAddress(trace_fstream, &mtrace)) {
-        printf("Hex address (printf): %08lx\n", mtrace.addr);
+        vAddr = (unsigned int)mtrace.addr;
+
+        // Lookup addr - if not present, insert & increment frame_idx
+        if (pt->lookup_vpn2pfn(vAddr) == nullptr) {
+            pt->insert_vpn2pfn(vAddr, frame_idx);
+            frame_idx++;
+        }
     }
 
     fclose(trace_fstream);
 }
 
 int main(int argc, char **argv) {
-//    readTrace(argv[1], int(*argv[2] - '0'));
-    unsigned int vAddr = 0x3c654321;
-    int lvls[3] = {8, 4, 8};
-    printf("Virtual Address: %08x\n\n", vAddr);
+    int args[] = {8, 4, 8};
+    int size = sizeof(args)/sizeof(args[0]);
 
-    // Declaring args & test structures
-    int num_of_lvls = sizeof(lvls)/sizeof(lvls[0]);
-    unsigned int bitmasks[num_of_lvls];
-    int shifts[num_of_lvls];
-    unsigned int entryCount[num_of_lvls];
-
-    // Extracting addr & level info
-    getLvlInfo(lvls, num_of_lvls, bitmasks, shifts, entryCount);
-    tuple<unsigned int, unsigned int> vals = getAddrInfo(lvls, 3, vAddr);
-
-    // Output to console
-    for (int i = 0; i < num_of_lvls; i++) {
-        cout << "Level " << i << ":" << endl;
-        printf("Bitmask: %08x\n", bitmasks[i]);
-        printf("# of Shifts: %d\n", shifts[i]);
-        printf("Entry Count: %d\n\n", entryCount[i]);
-    }
-    printf("VPN: %08x\n", get<0>(vals));
-    printf("Offset: %08x\n", get<1>(vals));
+    PageTable page_table = PageTable(args, size);
+    processTrace("trace.tr", &page_table);
 }
 

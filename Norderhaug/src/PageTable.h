@@ -3,13 +3,15 @@
 //
 
 #ifndef NORDERHAUG_PAGETABLE_H
+
 #define NORDERHAUG_PAGETABLE_H
+
+class Level; // Forward declaration to break circular dependency
 
 #include "bitManipulation.h"
 #include "math.h"
 #include "Level.h"
 #include "Map.h"
-
 
 class PageTable {
 public:

@@ -13,20 +13,17 @@
   <component name="ChangeListManager">
     <list default="true" id="39897bc1-a7c7-4251-ab8e-aa31f733be65" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-9295a3f1e22b858d1f7c.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-03-17T12-58-41-0756.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Norderhaug-Debug-bb65fec1901b74d12785.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/src/bitManipulation.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/src/bitManipulation.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/src/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Norderhaug" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Norderhaug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Map.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PageTable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/PageTable.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PageTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/PageTable.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bitManipulation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/bitManipulation.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1679015815127</updated>
       <workItem from="1679015816321" duration="9661000" />
-      <workItem from="1679057520377" duration="6871000" />
+      <workItem from="1679057520377" duration="10074000" />
     </task>
     <servers />
   </component>

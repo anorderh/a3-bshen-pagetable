@@ -54,38 +54,62 @@ unsigned int PageTable::virtualAddressToVPN(unsigned int vAddr, unsigned int mas
  * @return
  */
 Map* PageTable::lookup_vpn2pfn(unsigned int vAddr) {
+    Level* lvl = root;
+    unsigned int lvl_vpn;
+    int leaf_lvl = level_count-1;
+
+    // Process unto leaf level
+    for (int i = 0; i < leaf_lvl; i++) {
+
+        // Apply lvl's bitmask & shift for VPN
+        lvl_vpn = virtualAddressToVPN(vAddr, lvl->bitmask, lvl->shift);
+
+        // Checking if table at lvl exists...
+        // Y - Update lvl and continue, N - VPN not mapped yet, return nullptr
+        if (lvl->nextLevels[lvl_vpn] == nullptr) {
+            return nullptr;
+        }
+        lvl = lvl->nextLevels[lvl_vpn];
+    }
+
+    // Getting leaf lvl idx & retrieving Map present
+    unsigned int leaf_map_idx = virtualAddressToVPN(vAddr, bitmasks[leaf_lvl], bit_shifts[leaf_lvl]);
+    return lvl->maps[leaf_map_idx];
+}
+
+/**
+ * uses vAddr to traverse and allocate necessary Level and Map objs
+ * @param vAddr
+ * @param frame
+ */
+void PageTable::insert_vpn2pfn(unsigned int vAddr, unsigned int frame) {
     // Generating VPN mask & shift, then extracting VPN
     unsigned int vpn_mask = generateBitmask(0, bit_sum);
     int shift = 32 - bit_sum;
     unsigned int VPN = virtualAddressToVPN(vAddr, vpn_mask, shift);
 
     Level* lvl = root;
-    int lvl_depth = 0;
-
-    unsigned int next_entry_idx;
+    int lvl_depth = lvl->depth; // Starts at 0 given 'root'
+    unsigned int lvl_vpn;
     int leaf_lvl = level_count-1;
 
     // Process unto leaf level
     for (int i = 0; i < leaf_lvl; i++) {
 
-        // Getting lvl's bits & shifting to get idx
-        next_entry_idx = virtualAddressToVPN(vAddr, lvl->bitmask, lvl->shift);
+        // Apply lvl's bitmask & shift for VPN
+        lvl_vpn = virtualAddressToVPN(vAddr, lvl->bitmask, lvl->shift);
 
-        // Checking if table at lvl exists, otherwise allocating new Level
-        if (lvl->nextLevels[next_entry_idx] == nullptr) {
-            // ERROR! - Not sure why new Level object can't be allocated here
-            lvl->nextLevels[next_entry_idx] = new Level(lvl_depth + 1, this);
+        // Checking if table at lvl exists...
+        // Y - Update lvl and continue, N - Allocate new Level, update and continue
+        if (lvl->nextLevels[lvl_vpn] == nullptr) {
+            lvl->nextLevels[lvl_vpn] = new Level(lvl_depth + 1, this);
         }
-        lvl = lvl->nextLevels[next_entry_idx];
+        lvl = lvl->nextLevels[lvl_vpn];
     }
 
-    // Getting leaf lvl idx & retrieving map
+    // Getting leaf lvl idx & allocating new Map
     unsigned int leaf_map_idx = virtualAddressToVPN(vAddr, bitmasks[leaf_lvl], bit_shifts[leaf_lvl]);
-    return lvl->maps[leaf_map_idx];
-}
-
-void PageTable::insert_vpn2pfn(unsigned int vAddr, unsigned int frame) {
-
+    lvl->maps[leaf_map_idx] = new Map(VPN, frame);
 }
 
 /**
@@ -108,5 +132,5 @@ PageTable::PageTable(int *lvl_args, int num_of_lvls) {
 
     getPageTableInfo(lvl_args, num_of_lvls, bitmasks, bit_shifts, entryCount);
 
-    root = new Level[0];
+    root = new Level(0, this);
 }
