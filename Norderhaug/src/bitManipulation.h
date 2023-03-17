@@ -11,8 +11,8 @@
 
 using namespace std;
 
-void getLvlIndices(int lvls[], int numOfLvls);
-void getLvlInfo(int lvls[], int num_of_lvls, unsigned int* bitmasks, int* shifts, unsigned int* entryCount);
+void shift(unsigned int& value, int shifts, bool populate);
+unsigned int generateBitmask(int start, int end);
 tuple<unsigned int, unsigned int> getAddrInfo(int lvls[], int numOfLvls, unsigned int vAddr);
 
 

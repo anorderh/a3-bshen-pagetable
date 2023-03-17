@@ -20,7 +20,7 @@ void readTrace(const char *filename) {
 int main(int argc, char **argv) {
 //    readTrace(argv[1], int(*argv[2] - '0'));
     unsigned int vAddr = 0x3c654321;
-    int lvls[3] = {6, 16, 4};
+    int lvls[3] = {8, 4, 8};
     printf("Virtual Address: %08x\n\n", vAddr);
 
     // Declaring args & test structures

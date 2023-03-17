@@ -55,30 +55,3 @@ tuple<unsigned int, unsigned int> getAddrInfo(int lvls[], int numOfLvls, unsigne
 
     return make_tuple(VPN, offset);
 }
-
-/**
- * initializes input bitmasks, shifts, and entryCount arrays with values
- * @param lvls
- * @param num_of_lvls
- * @param bitmasks
- * @param shifts
- * @param entryCount
- */
-void getLvlInfo(int lvls[], int num_of_lvls, unsigned int* bitmasks, int* shifts, unsigned int* entryCount) {
-    int offset = 0;
-
-    // Create tuples holding levels' start_idx & ending_idx
-    tuple<int, int> bit_ranges[num_of_lvls];
-    for (int i = 0; i < num_of_lvls; i++) {
-        bit_ranges[i] = make_tuple(offset, offset + lvls[i]);           // Calculate lvl's desired bit range
-        entryCount[i] = (unsigned int)(pow(2, lvls[i])); // Calculate lvl's entry count
-        shifts[i] = 32 - get<1>(bit_ranges[i]);                     // Calculate lvl's bit shift
-
-        offset += lvls[i]; // Update offset
-    }
-
-    // Iterate through lvls & use bit range to generate bitmasks
-    for (int i = 0; i < num_of_lvls; i++) {
-        bitmasks[i] = generateBitmask(get<0>(bit_ranges[i]), get<1>(bit_ranges[i]));
-    }
-}

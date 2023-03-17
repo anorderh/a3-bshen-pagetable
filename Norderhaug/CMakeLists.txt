@@ -15,6 +15,8 @@ set(
         ${APP_DOMAIN}/vaddr_tracereader.c
         ${APP_DOMAIN}/main.cpp
         ${APP_DOMAIN}/bitManipulation.cpp
+        ${APP_DOMAIN}/Map.cpp
+        ${APP_DOMAIN}/Map.h
 )
 
 add_executable(Norderhaug ${SOURCE_FILES})
