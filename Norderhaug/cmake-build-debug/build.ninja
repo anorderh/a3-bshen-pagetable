@@ -114,6 +114,13 @@ build CMakeFiles/Norderhaug.dir/src/PageTable.cpp.o: CXX_COMPILER__Norderhaug_De
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
   OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
 
+build CMakeFiles/Norderhaug.dir/src/PageTableStats.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/PageTableStats.cpp || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/src/PageTableStats.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
+  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
+  OBJECT_DIR = CMakeFiles/Norderhaug.dir
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+
 build CMakeFiles/Norderhaug.dir/src/Level.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/Level.cpp || cmake_object_order_depends_target_Norderhaug
   DEP_FILE = CMakeFiles/Norderhaug.dir/src/Level.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
@@ -129,7 +136,7 @@ build CMakeFiles/Norderhaug.dir/src/Level.cpp.o: CXX_COMPILER__Norderhaug_Debug 
 #############################################
 # Link the executable Norderhaug
 
-build Norderhaug: CXX_EXECUTABLE_LINKER__Norderhaug_Debug CMakeFiles/Norderhaug.dir/src/print_helpers.c.o CMakeFiles/Norderhaug.dir/src/vaddr_tracereader.c.o CMakeFiles/Norderhaug.dir/src/main.cpp.o CMakeFiles/Norderhaug.dir/src/bitManipulation.cpp.o CMakeFiles/Norderhaug.dir/src/Map.cpp.o CMakeFiles/Norderhaug.dir/src/PageTable.cpp.o CMakeFiles/Norderhaug.dir/src/Level.cpp.o
+build Norderhaug: CXX_EXECUTABLE_LINKER__Norderhaug_Debug CMakeFiles/Norderhaug.dir/src/print_helpers.c.o CMakeFiles/Norderhaug.dir/src/vaddr_tracereader.c.o CMakeFiles/Norderhaug.dir/src/main.cpp.o CMakeFiles/Norderhaug.dir/src/bitManipulation.cpp.o CMakeFiles/Norderhaug.dir/src/Map.cpp.o CMakeFiles/Norderhaug.dir/src/PageTable.cpp.o CMakeFiles/Norderhaug.dir/src/PageTableStats.cpp.o CMakeFiles/Norderhaug.dir/src/Level.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
   POST_BUILD = :

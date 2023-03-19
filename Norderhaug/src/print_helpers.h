@@ -1,29 +1,8 @@
 #ifndef PRINT_HELPERS_H
 #define PRINT_HELPERS_H
 
-/*
- * Compilation notes:
- * C compilers:
- *    uses bool, must compile with -std=c99 or later (bool was introduced
- *    in the 1999 C standard.
- *
- * C++ compilers
- *    uses uint32_t, unsigned 32 bit integer type, introduced in C++11,
- *    The defaults in the g++ compiler on edoras should be fine with this
- */
-
-/* C and C++ define some of their types in different places.
- * Check and see if we are using C or C++ and include appropriately
- * so that this will compile under C and C++
- */
-#ifdef __cplusplus
-/* C++ includes */
-#include <stdint.h>
-#else
-/* C includes */
 #include <inttypes.h>
 #include <stdbool.h>
-#endif 
 
 /*
  * structure that can be used to maintain which output types are enabled.

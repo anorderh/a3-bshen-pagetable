@@ -12,6 +12,7 @@ class Level; // Forward declaration to break circular dependency
 #include "math.h"
 #include "Level.h"
 #include "Map.h"
+#include <queue>
 
 class PageTable {
 public:
@@ -28,7 +29,7 @@ public:
     unsigned int virtualAddressToVPN(unsigned int vAddr, unsigned int mask, unsigned int shift);
     Map* lookup_vpn2pfn(unsigned int vAddr);
     void insert_vpn2pfn(unsigned int vAddr, unsigned int frame);
-
+    unsigned int calculateSize();
 };
 
 void getPageTableInfo(int lvls[], int num_of_lvls, unsigned int* bitmasks, int* shifts, unsigned int* entryCount);

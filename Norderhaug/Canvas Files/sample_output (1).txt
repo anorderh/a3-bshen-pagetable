@@ -34,7 +34,7 @@ level 2 mask 000FF000
 00000620
 00000620
 
-./mmuwithtlb -n 20 -p vpn2pfn trace.tr 8 4 8
+./mmuwithtlb -n 20 -p vpn2pfn trace.tr 4 6 8
 0 1 7 -> 0
 0 1 7 -> 0
 0 1 7 -> 0

@@ -19,6 +19,8 @@ set(
         ${APP_DOMAIN}/Map.h
         ${APP_DOMAIN}/PageTable.cpp
         ${APP_DOMAIN}/PageTable.h
+        ${APP_DOMAIN}/PageTableStats.cpp
+        ${APP_DOMAIN}/PageTableStats.h
         ${APP_DOMAIN}/Level.cpp
         ${APP_DOMAIN}/Level.h
 )

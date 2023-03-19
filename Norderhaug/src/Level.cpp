@@ -16,8 +16,9 @@ Level::Level(int lvl, PageTable* pt) {
     shift = pt->bit_shifts[lvl];
     count = pt->entryCount[lvl];
 
-    // Allocating nextLevels
-    nextLevels = new Level*[count]();
-    // Allocating map, incase leaf node
-    maps = new Map*[count]();
+    if (lvl == pt->level_count-1) { // Leaf node - allocate Map[]
+        maps = new Map*[count]();
+    } else {                        // Allocate nextLevels
+        nextLevels = new Level*[count]();
+    }
 }

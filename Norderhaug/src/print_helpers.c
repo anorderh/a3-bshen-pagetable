@@ -1,14 +1,6 @@
 #include <stdio.h>
 #include "print_helpers.h"
 
-/* Handle C++ namespaces, ignore if compiled in C 
- * C++ usually uses this #define to declare the C++ standard.
- * It will not be defined if a C compiler is used.
- */
-#ifdef __cplusplus
-using namespace std;
-#endif
-
 /**
  * @brief Print out a number in hex, one per line
  * @param number 
