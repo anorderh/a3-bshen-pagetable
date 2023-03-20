@@ -4,6 +4,8 @@
 
 #include "PageTable.h"
 
+using namespace std;
+
 /**
  * constructor tracking # of levels, calculating all needed values, and allocating root level
  * @param lvl_args
@@ -72,6 +74,18 @@ unsigned int PageTable::virtualAddressToVPN(unsigned int vAddr, unsigned int mas
 }
 
 /**
+ * generates VPN based on virtualAddress (groups all Levels together)
+ * @param vAddr
+ * @return
+ */
+unsigned int PageTable::virtualAddressToBaseVPN(unsigned int vAddr) {
+    unsigned int mask = generateBitmask(0, bit_sum);
+    unsigned int shift = 32 - bit_sum;
+
+    return virtualAddressToVPN(vAddr, mask, shift);
+}
+
+/**
  * generates offset based on virtual address & bitmask
  * @param vAddr
  * @param mask
@@ -88,11 +102,27 @@ unsigned int PageTable::virtualAddressToOffset(unsigned int vAddr) {
 }
 
 /**
- * uses vAddr to traverse tree iteratively unto leaf level, checks Map presence
+ * generate physical addr. using vAddr's offset and mapped frame
+ * @param vAddr
+ * @param frame
+ * @return
+ */
+unsigned int PageTable::frameToPhysicalAddress(unsigned int vAddr, unsigned int frame) {
+    unsigned int offset = virtualAddressToOffset(vAddr);
+
+    unsigned int frame_val = frame; // Factor in frame idx using Page's size
+    shift(frame_val, 32 - bit_sum, false);
+
+    return frame_val + offset;
+}
+
+/**
+ * uses vAddr to traverse tree iteratively unto leaf level. Checks if vAddr is mapped.
+ * Stores sequential Level VPNs. Returns tuple holding Map* and Level's VPNs.
  * @param vAddr
  * @return
  */
-Map* PageTable::lookup_vpn2pfn(unsigned int vAddr, OutputOptionsType* options) {
+tuple<Map*, unsigned int*> PageTable::lookup_vpn2pfn(unsigned int vAddr, OutputOptionsType* options) {
     Level* lvl = root;
     unsigned int lvl_vpn = 0; unsigned int offset = 0;
     int leaf_lvl = level_count-1;
@@ -102,14 +132,12 @@ Map* PageTable::lookup_vpn2pfn(unsigned int vAddr, OutputOptionsType* options) {
     for (int depth = 0; depth < leaf_lvl; depth++) {
         // Apply lvl's bitmask & shift for VPN
         lvl_vpn = virtualAddressToVPN(vAddr, lvl->bitmask, lvl->shift);
-        if (options->vpn2pfn) { // Tracking VPNs per level
-            VPNs[depth] = lvl_vpn;
-        }
+        VPNs[depth] = lvl_vpn; // Tracking VPNs per leve
 
         // Checking if table at lvl exists...
         // Y - Update lvl and continue, N - VPN not mapped yet, return nullptr
         if (lvl->nextLevels[lvl_vpn] == nullptr) {
-            return nullptr;
+            return make_tuple(nullptr, nullptr);
         }
         lvl = lvl->nextLevels[lvl_vpn];
     }
@@ -117,35 +145,21 @@ Map* PageTable::lookup_vpn2pfn(unsigned int vAddr, OutputOptionsType* options) {
     // Getting leaf lvl idx & retrieving Map present
     unsigned int leaf_map_idx = virtualAddressToVPN(vAddr, bitmasks[leaf_lvl], bit_shifts[leaf_lvl]);
     Map* entry = lvl->maps[leaf_map_idx];
+    VPNs[leaf_lvl] = leaf_map_idx;
 
-    // Outputting to console
-    if (entry != nullptr) { // Ensure VA is mapped
-        if (options->vpn2pfn) {         // Lvls' VPNs to PFN
-            VPNs[leaf_lvl] = leaf_map_idx;
-            report_pagetable_map(level_count, VPNs, entry->frame_num);
-        } else if (options->va2pa) {    // VA to PA
-            // Factor in frame idx using Page's size
-            unsigned int frame_val = entry->frame_num;
-            shift(frame_val, 32 - bit_sum, false);
-            offset = virtualAddressToOffset(vAddr);
-
-            report_virtualAddr2physicalAddr(vAddr, (frame_val + offset));
-        }
-    }
-
-    return lvl->maps[leaf_map_idx];
+    // Return tuple holding Map* and processed Level VPNs
+    return make_tuple(entry, VPNs);
 }
 
 /**
- * uses vAddr to traverse and allocate necessary Level and Map objs
+ * uses vAddr to traverse and allocate necessary Level and Map objs.
+ * Stores & returns sequential Level VPNs.
  * @param vAddr
  * @param frame
  */
-void PageTable::insert_vpn2pfn(unsigned int vAddr, unsigned int frame, OutputOptionsType* options) {
+unsigned int* PageTable::insert_vpn2pfn(unsigned int vAddr, unsigned int frame, OutputOptionsType* options) {
     // Generating masks, extracting for VPN & offset
-    unsigned int vpn_mask = generateBitmask(0, bit_sum);
-    unsigned int VPN = virtualAddressToVPN(vAddr, vpn_mask, 32 - bit_sum);
-    unsigned int offset = virtualAddressToOffset(vAddr);
+    unsigned int VPN = virtualAddressToBaseVPN(vAddr);
 
     Level* lvl = root;
     unsigned int lvl_vpn = 0;
@@ -157,9 +171,7 @@ void PageTable::insert_vpn2pfn(unsigned int vAddr, unsigned int frame, OutputOpt
 
         // Apply lvl's bitmask & shift for VPN
         lvl_vpn = virtualAddressToVPN(vAddr, lvl->bitmask, lvl->shift);
-        if (options->vpn2pfn) { // Tracking VPNs per level
-            VPNs[depth] = lvl_vpn;
-        }
+        VPNs[depth] = lvl_vpn; // Tracking VPNs per leve
 
         // Checking if table at lvl exists...
         // Y - Update lvl and continue, N - Allocate new Level, update and continue
@@ -173,20 +185,11 @@ void PageTable::insert_vpn2pfn(unsigned int vAddr, unsigned int frame, OutputOpt
     unsigned int leaf_map_idx = virtualAddressToVPN(vAddr, bitmasks[leaf_lvl], bit_shifts[leaf_lvl]);
     Map* entry = new Map(VPN, frame);
     lvl->maps[leaf_map_idx] = entry;
+    VPNs[leaf_lvl] = leaf_map_idx; // Storing final VPN
 
-    // Outputting to console
-    if (options->vpn2pfn) {         // Ensure VA is mapped
-        VPNs[leaf_lvl] = leaf_map_idx;
-        report_pagetable_map(level_count, VPNs, entry->frame_num);
-    } else if (options->va2pa) {    // Lvls' VPNs to PFN
-        // Factor in frame idx using Page's size
-        unsigned int frame_val = frame;
-        shift(frame_val, 32 - bit_sum, false);
-
-        report_virtualAddr2physicalAddr(vAddr, (frame_val + offset));
-    }
+    // Return processed Level VPNs
+    return VPNs;
 }
-
 
 /**
  * calculate size by iterating through all present Levels an Maps

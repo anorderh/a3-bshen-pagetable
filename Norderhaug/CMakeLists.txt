@@ -23,6 +23,8 @@ set(
         ${APP_DOMAIN}/PageTableStats.h
         ${APP_DOMAIN}/Level.cpp
         ${APP_DOMAIN}/Level.h
+        ${APP_DOMAIN}/TLB.cpp
+        ${APP_DOMAIN}/TLB.h
 )
 
 add_executable(Norderhaug ${SOURCE_FILES})

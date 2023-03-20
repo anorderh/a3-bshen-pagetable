@@ -31,9 +31,12 @@ public:
     unsigned int* entryCount;
 
     unsigned int virtualAddressToVPN(unsigned int vAddr, unsigned int mask, unsigned int shift);
+    unsigned int virtualAddressToBaseVPN(unsigned int vAddr);
     unsigned int virtualAddressToOffset(unsigned int vAddr);
-    Map* lookup_vpn2pfn(unsigned int vAddr, OutputOptionsType* options);
-    void insert_vpn2pfn(unsigned int vAddr, unsigned int frame, OutputOptionsType* options);
+    unsigned int frameToPhysicalAddress(unsigned int vAddr, unsigned int frame);
+
+    tuple<Map*, unsigned int*> lookup_vpn2pfn(unsigned int vAddr, OutputOptionsType* options);
+    unsigned int* insert_vpn2pfn(unsigned int vAddr, unsigned int frame, OutputOptionsType* options);
     unsigned int calculateSize();
 };
 
