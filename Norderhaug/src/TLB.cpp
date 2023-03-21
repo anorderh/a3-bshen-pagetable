@@ -7,6 +7,12 @@
 TLB::TLB(unsigned int size) {
     cur_size = 0;
     max_size = size;
+
+    if (size > 0) {
+        valid = true;
+    } else {
+        valid = false;
+    }
 }
 
 /**

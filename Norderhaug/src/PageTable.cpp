@@ -122,7 +122,7 @@ unsigned int PageTable::frameToPhysicalAddress(unsigned int vAddr, unsigned int 
  * @param vAddr
  * @return
  */
-tuple<Map*, unsigned int*> PageTable::lookup_vpn2pfn(unsigned int vAddr, OutputOptionsType* options) {
+tuple<Map*, unsigned int*> PageTable::lookup_vpn2pfn(unsigned int vAddr, TLB* tlb, unsigned int access_time) {
     Level* lvl = root;
     unsigned int lvl_vpn = 0; unsigned int offset = 0;
     int leaf_lvl = level_count-1;
@@ -147,6 +147,11 @@ tuple<Map*, unsigned int*> PageTable::lookup_vpn2pfn(unsigned int vAddr, OutputO
     Map* entry = lvl->maps[leaf_map_idx];
     VPNs[leaf_lvl] = leaf_map_idx;
 
+    // Save to TLB if 1) TLB is allocated and 2) Map is present
+    if (tlb->valid && entry != nullptr) {
+        tlb->insert(entry, access_time);
+    }
+
     // Return tuple holding Map* and processed Level VPNs
     return make_tuple(entry, VPNs);
 }
@@ -157,7 +162,7 @@ tuple<Map*, unsigned int*> PageTable::lookup_vpn2pfn(unsigned int vAddr, OutputO
  * @param vAddr
  * @param frame
  */
-unsigned int* PageTable::insert_vpn2pfn(unsigned int vAddr, unsigned int frame, OutputOptionsType* options) {
+unsigned int* PageTable::insert_vpn2pfn(unsigned int vAddr, unsigned int frame, TLB* tlb, unsigned int access_time) {
     // Generating masks, extracting for VPN & offset
     unsigned int VPN = virtualAddressToBaseVPN(vAddr);
 
@@ -186,6 +191,11 @@ unsigned int* PageTable::insert_vpn2pfn(unsigned int vAddr, unsigned int frame, 
     Map* entry = new Map(VPN, frame);
     lvl->maps[leaf_map_idx] = entry;
     VPNs[leaf_lvl] = leaf_map_idx; // Storing final VPN
+
+    // Save to TLB if TLB is allocated
+    if (tlb->valid) {
+        tlb->insert(entry, access_time);
+    }
 
     // Return processed Level VPNs
     return VPNs;

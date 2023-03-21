@@ -23,6 +23,7 @@ public:
 
     unsigned int cur_size;
     unsigned int max_size;
+    bool valid;
 
     TLB_Entry* lookup(unsigned int VPN, unsigned int cur_time);
     void insert(Map* entry, unsigned int cur_time);
