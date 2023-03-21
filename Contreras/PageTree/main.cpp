@@ -103,14 +103,7 @@ void processTrace(const char *filename, PageTable *pt, TLB* tlb, OutputOptionsTy
 
 int main(int argc, char **argv) {
 
-
-    int size = sizeof(args) / sizeof(argv[0]);
-
-    // Create PageTable & TLB
-    PageTable page_table = PageTable(args, size);
-    TLB tlb = TLB(0);
-
-    // Specify arguments
+// Specify arguments
     auto *options = new OutputOptionsType();
     options->summary = true;
     options->levelbitmasks = false;
@@ -121,6 +114,8 @@ int main(int argc, char **argv) {
 
     int iterations = 1;
     bool parse_all = true;
+
+    TLB tlb = TLB(0);
 
     int option;
     string mode;
@@ -177,19 +172,23 @@ int main(int argc, char **argv) {
     //parsing the mandatory arguments
     int index = optind;
     int isValidFile = 0;
-    if(index < argc) { // if there are more arguments to process
-        if (access(argv[index], isValidFile) == -1) {
+
+    if (access(argv[index], isValidFile) == -1) {
             cout << "Unable to open <<" << argv[index] << ">>";
             exit(-3);
-        }
-        index++;
-        int argIndex = 0;
-        int args [(argc - index)];
-        while(index < argc - 1){
-            args[argIndex] = atoi(argv[index]);
-            argIndex++;
-        }
     }
+    index++;
+    int argIndex = 0;
+    int args[(argc - index)];
+    while(index < argc - 1){
+        args[argIndex] = atoi(argv[index]);
+        argIndex++;
+        index++;
+    }
+
+    int size = sizeof(args) / sizeof(argv[0]);
+    // Create PageTable & TLB
+    PageTable page_table = PageTable(args, size);
 
 
 
