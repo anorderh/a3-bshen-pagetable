@@ -59,7 +59,7 @@ int NextAddress(FILE *trace_file, p2AddrTr *addr_ptr) {
   readN = fread(addr_ptr, sizeof(p2AddrTr), 1, trace_file);
 
   if (readN) {
-    
+
     if (byte_order == BIG) {
       /* records stored in little endian format, convert */
       addr_ptr->addr = swap_endian(addr_ptr->addr);

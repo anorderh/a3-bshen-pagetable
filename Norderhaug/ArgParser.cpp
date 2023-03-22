@@ -107,7 +107,8 @@ void parseArgs(int argc, char **argv, Args* fields) {
                 exit(1);
             }
             default: {
-                break;
+                printf("Usage: traceFile {bits_per_lvl} -n -c -p");
+                exit(1);
             }
         }
     }
