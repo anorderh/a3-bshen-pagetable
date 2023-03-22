@@ -25,6 +25,8 @@ set(
         ${APP_DOMAIN}/Level.h
         ${APP_DOMAIN}/TLB.cpp
         ${APP_DOMAIN}/TLB.h
+        ${APP_DOMAIN}/ArgParser.cpp
+        ${APP_DOMAIN}/ArgParser.h
 )
 
 add_executable(Norderhaug ${SOURCE_FILES})

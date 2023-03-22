@@ -1,8 +1,8 @@
-#include <iostream>
 #include "bitManipulation.h"
 #include "PageTable.h"
 #include "PageTableStats.h"
 #include "TLB.h"
+#include "ArgParser.h"
 extern "C" {
 #include "print_helpers.h"
 #include "vaddr_tracereader.h"
@@ -10,14 +10,13 @@ extern "C" {
 
 using namespace std;
 
-void processTrace(const char *filename, PageTable *pt, TLB* tlb, OutputOptionsType *options, int n, bool parse_all) {
+void processTrace(FILE* trace_fstream, PageTable *pt, TLB* tlb, OutputOptionsType *options, int n, bool parse_all) {
     // Console output - BEFORE processing has occurred
     if (options->levelbitmasks) {
         report_levelbitmasks(pt->level_count, pt->bitmasks);
         return;
     }
 
-    FILE *trace_fstream = fopen(filename, "r"); // file stream
     p2AddrTr mtrace;
     PageTableStats stats = PageTableStats(pt);
 
@@ -101,26 +100,15 @@ void processTrace(const char *filename, PageTable *pt, TLB* tlb, OutputOptionsTy
 }
 
 int main(int argc, char **argv) {
-    int args[] = {4, 8, 8};
-    int size = sizeof(args) / sizeof(args[0]);
+    // Parse provided arguments
+    Args* fields = new Args();
+    parseArgs(argc, argv, fields);
 
     // Create PageTable & TLB
-    PageTable page_table = PageTable(args, size);
-    TLB tlb = TLB(0);
+    PageTable page_table = PageTable(fields->lvl_args, fields->num_of_lvls);
+    TLB tlb = TLB(fields->tlb_size);
 
-    // Specify arguments
-    auto *options = new OutputOptionsType();
-    options->summary = true;
-    options->levelbitmasks = false;
-    options->offset = false;
-    options->vpn2pfn = false;
-    options->va2pa = false;
-    options->va2pa_tlb_ptwalk = false;
-
-    int iterations = 1;
-    bool parse_all = true;
-
-    // Process
-    processTrace("trace.tr", &page_table, &tlb, options, iterations, parse_all);
+    // Process trace file
+    processTrace(fields->f_stream, &page_table, &tlb, fields->options, fields->iterations, fields->parse_all);
 }
 
