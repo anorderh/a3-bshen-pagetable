@@ -18,7 +18,8 @@ void hexnum(uint32_t number) {
  */
 void report_levelbitmasks(int levels, uint32_t *masks) {
     printf("Bitmasks\n");
-    for (int idx = 0; idx < levels; idx++)
+    int idx;
+    for (idx = 0; idx < levels; idx++)
         /* show mask entry and move to next */
         printf("level %d mask %08X\n", idx, masks[idx]);
 
@@ -83,7 +84,8 @@ void report_va2pa_TLB_PTwalk(uint32_t src, uint32_t dest, bool tlbhit, bool pthi
  */
 void report_pagetable_map(int levels, uint32_t *pages, uint32_t frame) {
     /* output pages */
-    for (int idx=0; idx < levels; idx++)
+    int idx;
+    for (idx=0; idx < levels; idx++)
         printf("%X ", pages[idx]);
     /* output frame */
     printf("-> %X\n", frame);

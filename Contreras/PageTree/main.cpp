@@ -4,6 +4,7 @@
 #include "PageTableStats.h"
 #include "TLB.h"
 #include <getopt.h>
+#include <unistd.h>
 extern "C" {
 #include "print_helpers.h"
 #include "vaddr_tracereader.h"
@@ -119,7 +120,7 @@ int main(int argc, char **argv) {
 
     int option;
     string mode;
-    while ((option = getopt(argc, argv, "n:c:p")) != -1){
+    while ((option = getopt(argc, argv, "n:c:p:")) != -1){
         switch (option) {
             case 'n': // specifying number of memory accesses to process
                 if(atoi(optarg) < 0){
@@ -133,11 +134,12 @@ int main(int argc, char **argv) {
                 }
             case 'c': // setting the TLB Cache Capacity
                 if(atoi(optarg) < 0){
-                    cout << "Cache capacity must be a number, greater than or eqaul to 0";
-                    exit(-2);
+                    cout << "Cache capacity must be a number, greater than or equal to 0";
+                    exit(-1);
                 }
                 else{
                     tlb.max_size = atoi(optarg);
+                    break;
                 }
             case 'p' : // choosing the print mode
                 string s(optarg);
@@ -172,31 +174,32 @@ int main(int argc, char **argv) {
     //parsing the mandatory arguments
     int index = optind;
     int isValidFile = 0;
-
     if (access(argv[index], isValidFile) == -1) {
             cout << "Unable to open <<" << argv[index] << ">>";
-            exit(-3);
+            exit(-1);
     }
     index++;
     int argIndex = 0;
     int args[(argc - index)];
-    while(index < argc - 1){
+    int totalNumBits = 0;
+    while(index < argc){
+        if(atoi(argv[index]) < 1){
+            cout << "Level " << argIndex << " page table must be at least 1 bit";
+            exit(-1);
+        }
         args[argIndex] = atoi(argv[index]);
+        totalNumBits += atoi(argv[index]);
         argIndex++;
         index++;
+    }
+    if(totalNumBits > 28){
+        cout << "Too many bits used in page tables";
+        exit(-1);
     }
 
     int size = sizeof(args) / sizeof(argv[0]);
     // Create PageTable & TLB
     PageTable page_table = PageTable(args, size);
-
-
-
-
-
-
-
-
     // Process
     processTrace("trace.tr", &page_table, &tlb, options, iterations, parse_all);
 }
