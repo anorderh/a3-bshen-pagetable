@@ -72,75 +72,65 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_Norderhaug: phony || CMakeFiles/Norderhaug.dir
 
-build CMakeFiles/Norderhaug.dir/src/print_helpers.c.o: C_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/print_helpers.c || cmake_object_order_depends_target_Norderhaug
-  DEP_FILE = CMakeFiles/Norderhaug.dir/src/print_helpers.c.o.d
+build CMakeFiles/Norderhaug.dir/print_helpers.c.o: C_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/print_helpers.c || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/print_helpers.c.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
-  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
-  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir
 
-build CMakeFiles/Norderhaug.dir/src/vaddr_tracereader.c.o: C_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/vaddr_tracereader.c || cmake_object_order_depends_target_Norderhaug
-  DEP_FILE = CMakeFiles/Norderhaug.dir/src/vaddr_tracereader.c.o.d
+build CMakeFiles/Norderhaug.dir/vaddr_tracereader.c.o: C_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/vaddr_tracereader.c || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/vaddr_tracereader.c.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
-  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
-  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir
 
-build CMakeFiles/Norderhaug.dir/src/main.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/main.cpp || cmake_object_order_depends_target_Norderhaug
-  DEP_FILE = CMakeFiles/Norderhaug.dir/src/main.cpp.o.d
+build CMakeFiles/Norderhaug.dir/main.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/main.cpp || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/main.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
-  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
-  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir
 
-build CMakeFiles/Norderhaug.dir/src/bitManipulation.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/bitManipulation.cpp || cmake_object_order_depends_target_Norderhaug
-  DEP_FILE = CMakeFiles/Norderhaug.dir/src/bitManipulation.cpp.o.d
+build CMakeFiles/Norderhaug.dir/bitManipulation.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/bitManipulation.cpp || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/bitManipulation.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
-  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
-  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir
 
-build CMakeFiles/Norderhaug.dir/src/Map.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/Map.cpp || cmake_object_order_depends_target_Norderhaug
-  DEP_FILE = CMakeFiles/Norderhaug.dir/src/Map.cpp.o.d
+build CMakeFiles/Norderhaug.dir/Map.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/Map.cpp || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/Map.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
-  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
-  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir
 
-build CMakeFiles/Norderhaug.dir/src/PageTable.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/PageTable.cpp || cmake_object_order_depends_target_Norderhaug
-  DEP_FILE = CMakeFiles/Norderhaug.dir/src/PageTable.cpp.o.d
+build CMakeFiles/Norderhaug.dir/PageTable.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/PageTable.cpp || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/PageTable.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
-  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
-  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir
 
-build CMakeFiles/Norderhaug.dir/src/PageTableStats.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/PageTableStats.cpp || cmake_object_order_depends_target_Norderhaug
-  DEP_FILE = CMakeFiles/Norderhaug.dir/src/PageTableStats.cpp.o.d
+build CMakeFiles/Norderhaug.dir/PageTableStats.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/PageTableStats.cpp || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/PageTableStats.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
-  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
-  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir
 
-build CMakeFiles/Norderhaug.dir/src/Level.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/Level.cpp || cmake_object_order_depends_target_Norderhaug
-  DEP_FILE = CMakeFiles/Norderhaug.dir/src/Level.cpp.o.d
+build CMakeFiles/Norderhaug.dir/Level.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/Level.cpp || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/Level.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
-  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
-  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir
 
-build CMakeFiles/Norderhaug.dir/src/TLB.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/TLB.cpp || cmake_object_order_depends_target_Norderhaug
-  DEP_FILE = CMakeFiles/Norderhaug.dir/src/TLB.cpp.o.d
+build CMakeFiles/Norderhaug.dir/TLB.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/TLB.cpp || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/TLB.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
-  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
-  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir
 
-build CMakeFiles/Norderhaug.dir/src/ArgParser.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/src/ArgParser.cpp || cmake_object_order_depends_target_Norderhaug
-  DEP_FILE = CMakeFiles/Norderhaug.dir/src/ArgParser.cpp.o.d
+build CMakeFiles/Norderhaug.dir/ArgParser.cpp.o: CXX_COMPILER__Norderhaug_Debug /Users/anorde/School/SDSU$ Courses/Senior$ Spring/CS$ 480/Assignments/a3-bshen-pagetable/Norderhaug/ArgParser.cpp || cmake_object_order_depends_target_Norderhaug
+  DEP_FILE = CMakeFiles/Norderhaug.dir/ArgParser.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++11
-  INCLUDES = -I"/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
-  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/Norderhaug.dir
 
 
 # =============================================================================
@@ -150,7 +140,7 @@ build CMakeFiles/Norderhaug.dir/src/ArgParser.cpp.o: CXX_COMPILER__Norderhaug_De
 #############################################
 # Link the executable Norderhaug
 
-build Norderhaug: CXX_EXECUTABLE_LINKER__Norderhaug_Debug CMakeFiles/Norderhaug.dir/src/print_helpers.c.o CMakeFiles/Norderhaug.dir/src/vaddr_tracereader.c.o CMakeFiles/Norderhaug.dir/src/main.cpp.o CMakeFiles/Norderhaug.dir/src/bitManipulation.cpp.o CMakeFiles/Norderhaug.dir/src/Map.cpp.o CMakeFiles/Norderhaug.dir/src/PageTable.cpp.o CMakeFiles/Norderhaug.dir/src/PageTableStats.cpp.o CMakeFiles/Norderhaug.dir/src/Level.cpp.o CMakeFiles/Norderhaug.dir/src/TLB.cpp.o CMakeFiles/Norderhaug.dir/src/ArgParser.cpp.o
+build Norderhaug: CXX_EXECUTABLE_LINKER__Norderhaug_Debug CMakeFiles/Norderhaug.dir/print_helpers.c.o CMakeFiles/Norderhaug.dir/vaddr_tracereader.c.o CMakeFiles/Norderhaug.dir/main.cpp.o CMakeFiles/Norderhaug.dir/bitManipulation.cpp.o CMakeFiles/Norderhaug.dir/Map.cpp.o CMakeFiles/Norderhaug.dir/PageTable.cpp.o CMakeFiles/Norderhaug.dir/PageTableStats.cpp.o CMakeFiles/Norderhaug.dir/Level.cpp.o CMakeFiles/Norderhaug.dir/TLB.cpp.o CMakeFiles/Norderhaug.dir/ArgParser.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
   OBJECT_DIR = CMakeFiles/Norderhaug.dir
   POST_BUILD = :

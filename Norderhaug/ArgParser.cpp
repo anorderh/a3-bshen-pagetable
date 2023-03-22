@@ -1,9 +1,17 @@
-//
-// Created by Anthony Norderhaug on 3/21/23.
-//
+/**
+ * Anthony Norderhaug, Anthony Contreras
+ * CS 480 - Spring 2023
+ * RedID: 823899304, 824089247
+ *
+ * ArgParser.cpp implements optional & mandatory arg parsing.
+ */
 
 #include "ArgParser.h"
 
+/**
+ * prints out resulting fields from CLI arguments. for debugging purposes.
+ * @param fields                        Args, holding PageTable & TLB attrs
+ */
 void debugArgs(Args* fields) {
     for (int i = 0; i < fields->num_of_lvls; i++) {
         cout << "Level " << i << ": " << fields->lvl_args[i] << " bits" << endl;
@@ -23,6 +31,13 @@ void debugArgs(Args* fields) {
     cout << "va2patlb_walk: " << fields->options->va2pa_tlb_ptwalk<< endl;
 }
 
+
+/**
+ * parses argv for iterations, TLB capacity, print modes, lvl_args, & file stream
+ * @param argc                          # of args
+ * @param argv                          ptr to arg char* array
+ * @param fields                        Args, holding PageTable & TLB attrs
+ */
 void parseArgs(int argc, char **argv, Args* fields) {
     // Output options' defaults
     auto* options = fields->options;
@@ -37,7 +52,7 @@ void parseArgs(int argc, char **argv, Args* fields) {
     int option = 0;
     while ((option = getopt(argc, argv, "n:c:p:")) != -1) {
         switch (option) {
-            // Iterations - Doesn't YET factor opt parameter being 0 or a str
+            // Iterations
             case 'n': {
                 int amount = atoi(optarg);
                 if (amount < 0) {
@@ -49,7 +64,7 @@ void parseArgs(int argc, char **argv, Args* fields) {
                 fields->parse_all = false;
                 break;
             }
-            // TLB Size - Doesn't YET factor opt parameter being 0 or a str
+            // TLB Size
             case 'c': {
                 int tlb_size = atoi(optarg);
                 if (tlb_size < 0) {
@@ -64,7 +79,7 @@ void parseArgs(int argc, char **argv, Args* fields) {
             case 'p': {
                 string mode(optarg);
 
-                // Disabling 'summary' mode if not enabled
+                // Disabling default 'summary' mode if not enabled
                 if (mode != "summary") {
                     options->summary = false;
                 }
@@ -83,6 +98,14 @@ void parseArgs(int argc, char **argv, Args* fields) {
                 }
                 break;
             }
+            case ':': {
+                cout << "Option '" << optopt << "' was not given a parameter.";
+                exit(1);
+            }
+            case '?': {
+                cout << "Unknown argument: " << optopt;
+                exit(1);
+            }
             default: {
                 break;
             }
@@ -90,8 +113,8 @@ void parseArgs(int argc, char **argv, Args* fields) {
     }
 
     // PROCESS MANDATORY ARGS
-    if (argc - optind < 2) { // Usage check (if < 2, not enough args provided)
-        printf("Usage: traceFile bits_per_lvl -n -c -p");
+    if (argc - optind < 2) { // Usage check - if < 2, not enough args provided
+        printf("Usage: traceFile {bits_per_lvl} -n -c -p");
         exit(1);
     }
 
@@ -108,11 +131,11 @@ void parseArgs(int argc, char **argv, Args* fields) {
     fields->num_of_lvls = argc - optind;
     fields->lvl_args = new int[fields->num_of_lvls];
     int bits = 0; int bit_sum = 0;
-    for (int i = 0; i < argc-optind; i++) { // NEEDS CHECK FOR VALIDINTEGER
+    for (int i = 0; i < argc-optind; i++) {
         bits = atoi(argv[optind+i]);
 
         if (bits <= 0) { // Check to ensure bits >= 1
-            cout << "Level " << i << " must be atleast 1 bit" << endl;
+            cout << "Level " << i << " page table must be at least 1 bit" << endl;
             exit(1);
         }
         fields->lvl_args[i] = bits;

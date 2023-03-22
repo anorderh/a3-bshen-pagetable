@@ -1,13 +1,16 @@
-//
-// Created by Anthony Norderhaug on 3/21/23.
-//
+/**
+ * Anthony Norderhaug, Anthony Contreras
+ * CS 480 - Spring 2023
+ * RedID: 823899304, 824089247
+ *
+ * ArgParser.h implements struct Args for storing process fields. Also stores members & method signatures.
+ */
 
-#ifndef NORDERHAUG_ARGPARSER_H
-#define NORDERHAUG_ARGPARSER_H
+#ifndef ARGPARSER_H
+#define ARGPARSER_H
 
 #include <iostream>
 #include <unistd.h>
-#include <stdlib.h>
 #include "print_helpers.h"
 
 using namespace std;
@@ -26,4 +29,4 @@ void parseArgs(int argc, char **argv, Args* fields);
 
 
 
-#endif //NORDERHAUG_ARGPARSER_H
+#endif //ARGPARSER_H

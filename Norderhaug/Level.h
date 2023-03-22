@@ -1,9 +1,13 @@
-//
-// Created by Anthony Norderhaug on 3/17/23.
-//
+/**
+ * Anthony Norderhaug, Anthony Contreras
+ * CS 480 - Spring 2023
+ * RedID: 823899304, 824089247
+ *
+ * Level.h implements Level members
+ */
 
-#ifndef NORDERHAUG_LEVEL_H
-#define NORDERHAUG_LEVEL_H
+#ifndef LEVEL_H
+#define LEVEL_H
 
 class PageTable; // Forward declaration to break circular dependency
 
@@ -24,4 +28,4 @@ public:
 };
 
 
-#endif //NORDERHAUG_LEVEL_H
+#endif //LEVEL_H

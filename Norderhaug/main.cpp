@@ -1,4 +1,12 @@
-#include "bitManipulation.h"
+/**
+ * Anthony Norderhaug, Anthony Contereras
+ * CS 480 - Spring 2023
+ * RedID: 823899304, 824089247
+ *
+ * main.cpp allocates the PageTable & TLB, and parses the trace file for desired output.
+ */
+
+#include "BitManipulation.h"
 #include "PageTable.h"
 #include "PageTableStats.h"
 #include "TLB.h"
@@ -10,6 +18,16 @@ extern "C" {
 
 using namespace std;
 
+/**
+ * parses the trace and searches & allocates VPNs accordingly. Tracks processing's results for output.
+ *
+ * @param trace_fstream                     trace's file stream
+ * @param pt                                PageTable ptr
+ * @param tlb                               TLB ptr
+ * @param options                           OutputOptionsType, for tracking print mode
+ * @param n                                 # of addresses to process
+ * @param parse_all                         flag for processing all addresseses
+ */
 void processTrace(FILE* trace_fstream, PageTable *pt, TLB* tlb, OutputOptionsType *options, int n, bool parse_all) {
     // Console output - BEFORE processing has occurred
     if (options->levelbitmasks) {
@@ -44,7 +62,7 @@ void processTrace(FILE* trace_fstream, PageTable *pt, TLB* tlb, OutputOptionsTyp
             tlb_hit = true;
             cur_frame = tlb_map->PFN;
             stats.cache_hits += 1;
-        } else {    // vAddr NOT in TLB or NOT allocated
+        } else {    // vAddr NOT in TLB or TLB NOT allocated
             tie(pt_map, lvl_VPNs) = pt->lookup_vpn2pfn(vAddr, tlb, access_time);
 
             if (pt_map != nullptr) {    // vAddr in PageTable
@@ -76,7 +94,7 @@ void processTrace(FILE* trace_fstream, PageTable *pt, TLB* tlb, OutputOptionsTyp
         tlb_hit = false; page_hit = false;
         tlb_map = nullptr;
         access_time += 1; // Update access time
-        if (not parse_all) { // Update iterations if not parsing entire trace
+        if (not parse_all) { // Decrement iterations if not parsing entire trace
             n -= 1;
         }
     }
@@ -84,7 +102,7 @@ void processTrace(FILE* trace_fstream, PageTable *pt, TLB* tlb, OutputOptionsTyp
     fclose(trace_fstream);
 
     // Finalize PageTableStats
-    stats.page_size = (unsigned int) pow(2, 32 - pt->bit_sum);
+    stats.page_size = (unsigned int) pow(2, V_ADDR_BIT_SPACE - pt->bit_sum);
     stats.frames_used = frame_idx;
     stats.bytes = pt->calculateSize();
 

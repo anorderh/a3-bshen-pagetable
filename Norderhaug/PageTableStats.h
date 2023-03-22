@@ -1,9 +1,13 @@
-//
-// Created by Anthony Norderhaug on 3/18/23.
-//
+/**
+ * Anthony Norderhaug, Anthony Contreras
+ * CS 480 - Spring 2023
+ * RedID: 823899304, 824089247
+ *
+ * PageTableStats.h implements PageTableStats members
+ */
 
-#ifndef NORDERHAUG_PAGETABLESTATS_H
-#define NORDERHAUG_PAGETABLESTATS_H
+#ifndef PAGETABLESTATS_H
+#define PAGETABLESTATS_H
 
 #include "PageTable.h"
 #include "math.h"
@@ -23,4 +27,4 @@ public:
 };
 
 
-#endif //NORDERHAUG_PAGETABLESTATS_H
+#endif //PAGETABLESTATS_H

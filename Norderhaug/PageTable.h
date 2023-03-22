@@ -1,18 +1,22 @@
-//
-// Created by Anthony Norderhaug on 3/17/23.
-//
+/**
+ * Anthony Norderhaug, Anthony Contreras
+ * CS 480 - Spring 2023
+ * RedID: 823899304, 824089247
+ *
+ * PageTable.h implements PageTable members and method signatures
+ */
 
-#ifndef NORDERHAUG_PAGETABLE_H
-
-#define NORDERHAUG_PAGETABLE_H
+#ifndef PAGETABLE_H
+#define PAGETABLE_H
 
 class Level; // Forward declaration to break circular dependency
 
-#include "bitManipulation.h"
+#include "BitManipulation.h"
 #include "math.h"
 #include "Level.h"
 #include "Map.h"
 #include "TLB.h"
+#include "AddressConstants.h"
 extern "C" {
     #include "print_helpers.h"
 };
@@ -44,4 +48,4 @@ public:
 void getPageTableInfo(int lvls[], int num_of_lvls, unsigned int* bitmasks, int* shifts, unsigned int* entryCount);
 
 
-#endif //NORDERHAUG_PAGETABLE_H
+#endif //PAGETABLE_H

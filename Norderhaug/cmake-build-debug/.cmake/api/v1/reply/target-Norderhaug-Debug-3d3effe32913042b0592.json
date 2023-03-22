@@ -10,8 +10,7 @@
 	{
 		"commands" : 
 		[
-			"add_executable",
-			"include_directories"
+			"add_executable"
 		],
 		"files" : 
 		[
@@ -25,13 +24,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 32,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 8,
+				"line" : 31,
 				"parent" : 0
 			}
 		]
@@ -43,13 +36,6 @@
 			[
 				{
 					"fragment" : "-g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 2,
-					"path" : "/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
 				}
 			],
 			"language" : "C",
@@ -67,13 +53,6 @@
 				},
 				{
 					"fragment" : "-std=gnu++11"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 2,
-					"path" : "/Users/anorde/School/SDSU Courses/Senior Spring/CS 480/Assignments/a3-bshen-pagetable/Norderhaug/./src"
 				}
 			],
 			"language" : "CXX",
@@ -134,7 +113,8 @@
 				11,
 				13,
 				15,
-				17
+				17,
+				18
 			]
 		},
 		{
@@ -158,102 +138,107 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "src/print_helpers.h",
+			"path" : "print_helpers.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/print_helpers.c",
+			"path" : "print_helpers.c",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/vaddr_tracereader.h",
+			"path" : "vaddr_tracereader.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/vaddr_tracereader.c",
+			"path" : "vaddr_tracereader.c",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "src/main.cpp",
+			"path" : "main.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "src/bitManipulation.cpp",
+			"path" : "bitManipulation.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "src/Map.cpp",
+			"path" : "Map.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/Map.h",
+			"path" : "Map.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "src/PageTable.cpp",
+			"path" : "PageTable.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/PageTable.h",
+			"path" : "PageTable.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "src/PageTableStats.cpp",
+			"path" : "PageTableStats.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/PageTableStats.h",
+			"path" : "PageTableStats.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "src/Level.cpp",
+			"path" : "Level.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/Level.h",
+			"path" : "Level.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "src/TLB.cpp",
+			"path" : "TLB.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/TLB.h",
+			"path" : "TLB.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "src/ArgParser.cpp",
+			"path" : "ArgParser.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/ArgParser.h",
+			"path" : "ArgParser.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "AddressConstants.h",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -1,6 +1,10 @@
-//
-// Created by Anthony Norderhaug on 3/17/23.
-//
+/**
+ * Anthony Norderhaug, Anthony Contreras
+ * CS 480 - Spring 2023
+ * RedID: 823899304, 824089247
+ *
+ * Map.cpp contains Map obj implementation.
+ */
 
 #include "Map.h"
 

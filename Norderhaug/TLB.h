@@ -1,9 +1,12 @@
-//
-// Created by Anthony Norderhaug on 3/20/23.
-//
-
-#ifndef NORDERHAUG_TLB_H
-#define NORDERHAUG_TLB_H
+/**
+ * Anthony Norderhaug, Anthony Contreras
+ * CS 480 - Spring 2023
+ * RedID: 823899304, 824089247
+ *
+ * TLB.h implements struct TLB_Entry for storing entry access_time & TLB.cpp's members and method signatures.
+ */
+#ifndef TLB_H
+#define TLB_H
 
 #include "Map.h"
 #include <map>
@@ -31,4 +34,4 @@ public:
 };
 
 
-#endif //NORDERHAUG_TLB_H
+#endif //TLB_H

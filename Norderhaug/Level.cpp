@@ -1,6 +1,10 @@
-//
-// Created by Anthony Norderhaug on 3/17/23.
-//
+/**
+ * Anthony Norderhaug, Anthony Contreras
+ * CS 480 - Spring 2023
+ * RedID: 823899304, 824089247
+ *
+ * Level.cpp contains Level obj implementation.
+ */
 
 #include "Level.h"
 
