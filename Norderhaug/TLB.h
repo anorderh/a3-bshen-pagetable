@@ -8,8 +8,12 @@
 #ifndef TLB_H
 #define TLB_H
 
+# define LRU_MAX_LIMIT 8
+
 #include "Map.h"
 #include <map>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -23,14 +27,16 @@ public:
     TLB(unsigned int size);
 
     map<unsigned int, TLB_Entry> cache;
+    vector<unsigned int> LRU;
 
     unsigned int cur_size;
-    unsigned int max_size;
+    unsigned int max_size; unsigned int LRU_max;
     bool valid;
 
     TLB_Entry* lookup(unsigned int VPN, unsigned int cur_time);
     void insert(Map* entry, unsigned int cur_time);
-    void reformat();
+    void update(unsigned int VPN, unsigned int cur_time);
+    void reformat(bool removeFromTLB);
 };
 
 

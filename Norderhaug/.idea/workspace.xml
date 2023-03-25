@@ -13,13 +13,17 @@
   <component name="ChangeListManager">
     <list default="true" id="39897bc1-a7c7-4251-ab8e-aa31f733be65" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArgParser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ArgParser.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TLB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TLB.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TLB.h" beforeDir="false" afterPath="$PROJECT_DIR$/TLB.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/ArgParser.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/ArgParser.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/Level.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/Level.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/PageTable.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/PageTable.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/PageTableStats.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/PageTableStats.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/TLB.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/TLB.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Norderhaug.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Norderhaug" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Norderhaug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vaddr_tracereader.c" beforeDir="false" afterPath="$PROJECT_DIR$/vaddr_tracereader.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,11 +86,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="%.o" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/makefile" target="%.o" workingDirectory="" arguments="">
         <envs />
@@ -130,7 +129,8 @@
       <workItem from="1679454203875" duration="6000" />
       <workItem from="1679454255022" duration="8000" />
       <workItem from="1679458883432" duration="13928000" />
-      <workItem from="1679475589173" duration="1000" />
+      <workItem from="1679475589173" duration="98000" />
+      <workItem from="1679515124415" duration="7622000" />
     </task>
     <servers />
   </component>
