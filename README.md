@@ -10,7 +10,7 @@ Due on **3/23/23 at 4:00 PM**, start of class
 
 ## Overview
 
-[Assignment #3 Prompt](./Norderhaug/Canvas Files/a3.pdf)
+[Assignment #3 Prompt](./a3.pdf)
 
 ## Process
 
